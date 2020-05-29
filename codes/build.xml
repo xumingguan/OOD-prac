@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="CompanySalesSimulator" basedir="." default="clean-build">
+    <property name="src.dir"       value="src"/>
+    <property name="resources.dir" value="resources"/>
+    <property name="build.dir"     value="build"/>
+    <property name="dist.dir"      value="dist"/>
+    <property name="main-class"    value="CompanySalesSimulator"/>
+    <property name="property"      value="property"/>
+    <property name="event"         value="event"/>
+    <property name="plan"          value="plan"/>
+    <property name="start-year"    value="2017"/>
+    <property name="end-year"      value="2020"/>
+
+
+
+    <target name="clean">
+        <delete dir="${build.dir}"/>
+        <delete dir="${dist.dir}"/>
+    </target>
+
+    <target name="compile">
+        <mkdir dir="${build.dir}"/>
+        <javac srcdir="${src.dir}" destdir="${build.dir}" includeantruntime="false" debug="true"/>
+    </target>
+
+    <target name="jar" depends="compile">
+        <mkdir dir="${dist.dir}"/>
+        <jar destfile="${dist.dir}/${ant.project.name}.jar" basedir="${build.dir}">
+            <manifest>
+                <attribute name="Main-Class" value="${main-class}"/>
+            </manifest>
+        </jar>
+        <copy todir="${dist.dir}">
+            <fileset dir="${resources.dir}"/>
+        </copy>
+    </target>
+
+    <target name="run" depends="jar">
+        <java jar="${dist.dir}/${ant.project.name}.jar" fork="true">
+            <arg value="${dist.dir}/${property}.csv"/>
+            <arg value="${dist.dir}/${event}.csv"/>
+            <arg value="${dist.dir}/${plan}.csv"/>
+            <arg value="${start-year}"/>
+            <arg value="${end-year}"/>
+        </java>
+    </target>
+
+    <target name="clean-build" depends="clean,jar"/>
+</project>
