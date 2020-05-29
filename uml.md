@@ -1,5 +1,5 @@
-UML.jpg - view from browser
+UML.png - view from browser
 
-![UML.jpg](https://github.com/ycAlex11/OOD-prac/blob/master/UML.png)
+![UML](https://github.com/ycAlex11/OOD-prac/blob/master/UML.jpg)
 
-<img src="https://github.com/ycAlex11/OOD-prac/blob/master/UML.png" width="150" height="150" alt="图片加载失败时，显示这段字"/>
+<img src="https://github.com/ycAlex11/OOD-prac/blob/master/UML.jpg" width="150" height="150" alt="图片加载失败时，显示这段字"/>
