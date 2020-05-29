@@ -1,4 +1,5 @@
 Several patterns were used to create the CompanySalesSimulator. Specifically, they are:
+
 	Strategy
 	Template
 	Composite
@@ -27,7 +28,7 @@ Within the PlannedEventController class, polymorphism of the planned events is u
 The factory generated the planned event and which is then executed via the executeEvent( ) method that has been defined in the event.
 By utilising this method, the responsibility and code for determining the type of planned event to be executed by the simulation is taken out of the controller class.
 
-#**Unplanned events (controller)**
+# **Unplanned events (controller)**
 The events (unplanned events) of an increase or decrease of either revenue, wages or value of a property utilise polymorphism by applying the strategy pattern on to the interface PerformEvent.
 
 There are six implementations of the PerformEvent, all of which inherit the PerformEvent interface. 
@@ -36,7 +37,7 @@ The PerformEvent interface enforces the abstract method executeEvent( ) method w
 The factory and controller for unplanned events takes advantage of polymorphism to apply the event information into the simulation. 
 The controller can obtain the appropriate unplanned event object by passing its file information to the factory which generates the object. Similarly, to planned events, this was done to maintain a separation of concerns between classes.
 
-#**Unit Testing**
+# **Unit Testing**
 
 Testing is primarily achieved by the use of dependency injection. 
 The controllers for handling the various forms of planned and unplanned events rely on a factory to provide the necessary objects for the simulation. 
